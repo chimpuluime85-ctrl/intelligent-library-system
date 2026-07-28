@@ -542,37 +542,31 @@ tbody tr {
 .dashboard-layout{
     display:flex;
     min-height:100vh;
+    background:#f5f7fb;
 }
 
 .dashboard-main{
     flex:1;
-    width:100%;
+    display:flex;
+    flex-direction:column;
     min-width:0;
-    padding:20px;
-    overflow-x:hidden;
 }
 
-/* Sidebar */
+.dashboard-content{
+    flex:1;
+    padding:30px;
+}
 
 .sidebar{
     width:280px;
-    transition:.3s;
-    z-index:1000;
+    transition:.3s ease;
 }
 
 .sidebar-overlay{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.45);
+    background:rgba(0,0,0,.4);
     z-index:999;
-}
-
-/* Navbar */
-
-.navbar-left{
-    display:flex;
-    align-items:center;
-    gap:15px;
 }
 
 .menu-toggle{
@@ -580,61 +574,26 @@ tbody tr {
     border:none;
     background:#2563eb;
     color:white;
-    width:45px;
-    height:45px;
+    width:42px;
+    height:42px;
     border-radius:10px;
     cursor:pointer;
-    font-size:20px;
 }
 
-/* Tables */
-
-.table-card{
-    overflow-x:auto;
-}
-
-table{
-    min-width:700px;
-}
-
-/* Charts */
-
-.charts-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:20px;
-}
-
-/* Forms */
-
-.booking-form,
-.booking-card,
-.calendar-card,
-.chart-card,
-.stat-card{
-    width:100%;
-}
-
-/* Mobile */
-
-@media(max-width:900px){
+@media (max-width:900px){
 
 .dashboard-layout{
     display:block;
-}
-
-.dashboard-main{
-    padding:15px;
 }
 
 .sidebar{
     position:fixed;
     top:0;
     left:0;
-    bottom:0;
     width:260px;
-    transform:translateX(-100%);
+    height:100%;
     z-index:1000;
+    transform:translateX(-100%);
 }
 
 .sidebar-open{
@@ -651,144 +610,12 @@ table{
     justify-content:center;
 }
 
-.navbar{
-    flex-wrap:wrap;
-    gap:15px;
-    padding:20px;
-}
-
-.profile-box{
-    width:100%;
-    justify-content:flex-start;
-}
-
-.stats-grid{
-    grid-template-columns:1fr;
-}
-
-.charts-grid{
-    grid-template-columns:1fr;
-}
-
-.chart-card{
-    overflow-x:auto;
-}
-
-.dashboard-header h1{
-    font-size:2rem;
-}
-
-.auth-card{
-    padding:30px;
-}
-
-.modal-content{
-    width:95%;
-}
-
-}
-
-/* Small phones */
-
-@media(max-width:600px){
-
 .dashboard-main{
-    padding:10px;
-}
-
-.navbar h2{
-    font-size:20px;
-}
-
-.navbar p{
-    font-size:14px;
-}
-
-.avatar{
-    width:42px;
-    height:42px;
-}
-
-.stat-card{
-    padding:20px;
-}
-
-.chart-card,
-.booking-card,
-.calendar-card{
-    padding:20px;
-}
-
-table{
-    min-width:600px;
-}
-
-}
-
-.dashboard-layout{
-    display:flex;
-    min-height:100vh;
-    background:#f4f7fb;
-}
-
-.dashboard-main{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    min-width:0;
-}
-
-.dashboard-content{
-    flex:1;
-    padding:20px;
-}
-
-.menu-toggle{
-    display:none;
-    border:none;
-    background:none;
-    font-size:24px;
-    cursor:pointer;
-}
-
-.sidebar-overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.35);
-    z-index:998;
-}
-
-@media (max-width:900px){
-
-.sidebar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:260px;
-    height:100%;
-    z-index:999;
-    transition:.3s;
-}
-
-.sidebar-close{
-    transform:translateX(-100%);
-}
-
-.sidebar-open{
-    transform:translateX(0);
-}
-
-.menu-toggle{
-    display:block;
-}
-
-.dashboard-main{
-    margin-left:0;
     width:100%;
 }
 
 .stats-grid{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1fr;
 }
 
 .charts-grid{
@@ -799,20 +626,12 @@ table{
 
 @media (max-width:600px){
 
-.stats-grid{
-    grid-template-columns:1fr;
-}
-
 .dashboard-content{
     padding:15px;
 }
 
 .navbar{
     padding:15px;
-}
-
-.profile-box h4{
-    font-size:14px;
 }
 
 }
