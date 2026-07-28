@@ -1,6 +1,6 @@
 import express from "express";
+
 import { getDashboardStats } from "../controllers/adminController.js";
-import { protect, adminOnly } from "../middleware/authMiddleware.js";
 
 import {
   getUsers,
@@ -9,14 +9,50 @@ import {
   deleteUser,
 } from "../controllers/userController.js";
 
+import {
+  protect,
+  adminOnly,
+} from "../middleware/authMiddleware.js";
+
 const router = express.Router();
 
-router.get("/users", protect, adminOnly, getUsers);
+/* Dashboard */
 
-router.post("/users", protect, adminOnly, createUser);
+router.get(
+  "/dashboard",
+  protect,
+  adminOnly,
+  getDashboardStats
+);
 
-router.put("/users/:id", protect, adminOnly, updateUser);
+/* Users */
 
-router.delete("/users/:id", protect, adminOnly, deleteUser);
+router.get(
+  "/users",
+  protect,
+  adminOnly,
+  getUsers
+);
+
+router.post(
+  "/users",
+  protect,
+  adminOnly,
+  createUser
+);
+
+router.put(
+  "/users/:id",
+  protect,
+  adminOnly,
+  updateUser
+);
+
+router.delete(
+  "/users/:id",
+  protect,
+  adminOnly,
+  deleteUser
+);
 
 export default router;
