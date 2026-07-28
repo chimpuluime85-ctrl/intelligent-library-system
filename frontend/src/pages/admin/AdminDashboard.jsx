@@ -30,7 +30,7 @@ const AdminDashboard = () => {
   return (
     <DashboardLayout>
       <div className="dashboard-header">
-        <h1>Admin Dashboard</h1>
+       <h1>Library Management Dashboard</h1>
         <p>System Overview</p>
       </div>
 
