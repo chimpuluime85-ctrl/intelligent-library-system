@@ -1,0 +1,536 @@
+/* GLOBAL */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    Inter,
+    Segoe UI,
+    sans-serif;
+
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* AUTH */
+
+.auth-page {
+  min-height: 100vh;
+
+  display: flex;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+}
+
+.auth-left {
+  flex: 1;
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 80px;
+}
+
+.auth-left h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.auth-left p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.auth-card {
+  width: 500px;
+
+  background: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 60px;
+
+  box-shadow:
+    0 20px 60px
+      rgba(0, 0, 0, 0.15);
+}
+
+.auth-card h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-card input {
+  padding: 15px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 12px;
+
+  font-size: 1rem;
+}
+
+.auth-card button {
+  padding: 15px;
+
+  background: #2563eb;
+
+  border: none;
+
+  color: white;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.auth-card button:hover {
+  background: #1d4ed8;
+}
+
+/* DASHBOARD */
+
+.sidebar {
+  width: 280px;
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      180deg,
+      #0f172a,
+      #1e293b
+    );
+
+  color: white;
+
+  padding: 30px;
+
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  margin-bottom: 40px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-item {
+  color: #cbd5e1;
+
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  background: #2563eb;
+  color: white;
+}
+
+.menu-item.active {
+  background: #2563eb;
+  color: white;
+}
+
+.logout-btn {
+  margin-top: 40px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  cursor: pointer;
+
+  color: #f87171;
+}
+
+.navbar {
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 20px 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 30px;
+
+  box-shadow:
+    0 10px 30px
+      rgba(0, 0, 0, 0.05);
+}
+
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  background: #2563eb;
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.dashboard-content {
+  padding: 30px;
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.dashboard-header p {
+  color: #6b7280;
+}
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 25px;
+
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  box-shadow:
+    0 10px 30px
+      rgba(0, 0, 0, 0.05);
+
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card h4 {
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+
+.stat-card h1 {
+  font-size: 3rem;
+}
+
+.chart-placeholder {
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 80px;
+
+  text-align: center;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  box-shadow:
+    0 10px 30px
+      rgba(0, 0, 0, 0.05);
+}
+
+/* COMMON */
+
+.btn {
+  padding: 12px 20px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.search-input {
+  width: 100%;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  border: 1px solid #d1d5db;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background:
+    rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 600px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 30px;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+
+  border: 5px solid #e5e7eb;
+  border-top: 5px solid #2563eb;
+
+  border-radius: 50%;
+
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .auth-left {
+    display: none;
+  }
+
+  .auth-card {
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 90px;
+  }
+
+  .menu-item span {
+    display: none;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+}
+
+.charts-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(450px, 1fr));
+
+  gap: 25px;
+
+  margin-top: 30px;
+}
+
+.chart-card {
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px
+      rgba(0,0,0,0.05);
+}
+.table-card {
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.05);
+
+  margin-top: 25px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+thead {
+  background: #f1f5f9;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.booking-card {
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.05);
+}
+
+.booking-form {
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+
+  box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.05);
+}
+
+.booking-form input,
+.booking-form textarea {
+  padding: 12px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+}
+
+.booking-form button {
+  background: #2563eb;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.calendar-card {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.05);
+}
+
+.delete-btn {
+  margin-top: 15px;
+
+  width: 100%;
+
+  padding: 10px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #ef4444;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
