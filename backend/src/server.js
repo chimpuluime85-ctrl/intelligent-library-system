@@ -14,18 +14,10 @@ const startServer = async () => {
       alter: true,
     });
 
-    await sequelize.sync({
-  alter: true,
-});
-
-    console.log(
-      "Database Models Synced"
-    );
+    console.log("Database Models Synced");
 
     app.listen(env.PORT, () => {
-      console.log(
-        `Server running on port ${env.PORT}`
-      );
+      console.log(`Server running on port ${env.PORT}`);
     });
   } catch (error) {
     console.error(error);
