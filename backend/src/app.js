@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 
+import adminRoutes from "./routes/adminRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 
 
@@ -38,6 +39,8 @@ app.use("/api/spaces", spaceRoutes);
 app.use("/api/resources", resourceRoutes);
 
 app.use("/api/bookings", bookingRoutes);
+
+app.use("/api/admin", adminRoutes);
 
 app.use(
   "/api/analytics",
