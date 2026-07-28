@@ -55,7 +55,15 @@ const links = [
 
 const Sidebar = ({ mobile, open }) => {
   return (
-    <div className="sidebar">
+    <div
+  className={`sidebar ${
+    mobile
+      ? open
+        ? "sidebar sidebar-open"
+        : "sidebar sidebar-close"
+      : "sidebar"
+  }`}
+>
       <div className="logo">IntelliLibrary</div>
 
       <div className="menu">
