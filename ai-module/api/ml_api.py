@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import joblib
 import os
 
@@ -20,19 +20,17 @@ occupancy_model = joblib.load(
     occupancy_model_path
 )
 
+
 @app.route("/")
 def home():
     return {
-        "success": True
+        "success": True,
+        "message": "AI Prediction Service Running"
     }
 
-@app.route(
-    "/predict-occupancy",
-    methods=["POST"]
-)
-def predict_occupancy():
 
-    from flask import request
+@app.route("/predict-occupancy", methods=["POST"])
+def predict_occupancy():
 
     data = request.json
 
@@ -46,15 +44,15 @@ def predict_occupancy():
 
     return {
         "success": True,
-        "predicted_occupancy": round(
-            float(prediction),
-            2
-        )
+        "predicted_occupancy": round(float(prediction), 2)
     }
 
+
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+
     app.run(
         host="0.0.0.0",
-        port=8000,
-        debug=True
+        port=port,
+        debug=False
     )
