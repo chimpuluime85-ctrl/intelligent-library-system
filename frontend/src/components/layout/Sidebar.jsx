@@ -35,27 +35,52 @@ const Sidebar = () => {
       icon: <FaCalendarAlt />,
     },
     {
-  name: "AI Predictions",
-  path: "/predictions",
-  icon: <FaChartLine />,
-},
+      name: "AI Predictions",
+      path: "/predictions",
+      icon: <FaChartLine />,
+    },
     {
       name: "Analytics",
-      path: "/predictions",
+      path: "/analytics",
       icon: <FaChartLine />,
     },
   ];
 
   const adminLinks = [
     {
-      name: "Admin",
+      name: "Dashboard",
       path: "/admin",
-      icon: <FaUsers />,
+      icon: <FaHome />,
     },
     {
       name: "Manage Users",
       path: "/manage-users",
       icon: <FaUsers />,
+    },
+    {
+      name: "Manage Spaces",
+      path: "/manage-spaces",
+      icon: <FaBook />,
+    },
+    {
+      name: "Manage Resources",
+      path: "/manage-resources",
+      icon: <FaBook />,
+    },
+    {
+      name: "Manage Bookings",
+      path: "/manage-bookings",
+      icon: <FaCalendarAlt />,
+    },
+    {
+      name: "AI Predictions",
+      path: "/predictions",
+      icon: <FaChartLine />,
+    },
+    {
+      name: "Analytics",
+      path: "/analytics",
+      icon: <FaChartLine />,
     },
     {
       name: "Settings",
@@ -66,9 +91,9 @@ const Sidebar = () => {
 
   const librarianLinks = [
     {
-      name: "Librarian",
+      name: "Dashboard",
       path: "/librarian",
-      icon: <FaUsers />,
+      icon: <FaHome />,
     },
     {
       name: "Manage Bookings",
@@ -85,26 +110,21 @@ const Sidebar = () => {
       path: "/manage-resources",
       icon: <FaBook />,
     },
+    {
+      name: "Analytics",
+      path: "/analytics",
+      icon: <FaChartLine />,
+    },
   ];
 
-  let links = [...studentLinks];
-
-  // TEMP DEVELOPMENT MODE
-  // Admin can see both Admin and Librarian menus
+  let links = studentLinks;
 
   if (user?.role === "admin") {
-    links = [
-      ...links,
-      ...adminLinks,
-      ...librarianLinks,
-    ];
+    links = adminLinks;
   }
 
   if (user?.role === "librarian") {
-    links = [
-      ...links,
-      ...librarianLinks,
-    ];
+    links = librarianLinks;
   }
 
   return (
