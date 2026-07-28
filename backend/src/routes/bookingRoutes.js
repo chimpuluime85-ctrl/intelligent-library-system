@@ -7,7 +7,9 @@ import {
   deleteBooking,
 } from "../controllers/bookingController.js";
 
-import { protect } from "../middleware/authMiddleware.js";
+import {
+  protect,
+} from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
