@@ -4,49 +4,61 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const DashboardLayout = ({ children }) => {
-  const [isMobile, setIsMobile] = useState(
-    window.innerWidth <= 768
+  const [mobile, setMobile] = useState(
+    window.innerWidth <= 900
   );
 
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+    const resize = () => {
+      setMobile(window.innerWidth <= 900);
+
+      if (window.innerWidth > 900) {
+        setOpen(false);
+      }
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", resize);
 
     return () =>
       window.removeEventListener(
         "resize",
-        handleResize
+        resize
       );
   }, []);
 
   return (
-    <div
-      style={{
-        display: isMobile ? "block" : "flex",
-        minHeight: "100vh",
-      }}
-    >
-      <Sidebar />
+    <div className="dashboard-layout">
 
-     <div
-  style={{
-    flex: 1,
-    width: "100%",
-    minWidth: 0,
-    padding: "20px",
-    boxSizing: "border-box",
-    overflowX: "hidden",
-  }}
->
-        <Navbar />
+      {mobile && open && (
+        <div
+          className="sidebar-overlay"
+          onClick={() =>
+            setOpen(false)
+          }
+        />
+      )}
+
+      <Sidebar
+        mobile={mobile}
+        open={open}
+      />
+
+      <div className="dashboard-main">
+
+        <Navbar
+          toggleSidebar={() =>
+            setOpen(!open)
+          }
+        />
 
         {children}
 
         <Footer />
+
       </div>
+
     </div>
   );
 };
