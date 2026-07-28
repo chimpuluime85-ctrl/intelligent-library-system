@@ -1,23 +1,30 @@
 import { FaBars } from "react-icons/fa";
 import { useAuth } from "../../context/AuthContext";
 
-const Navbar = ({ toggleSidebar }) => {
+const Navbar = ({
+  mobile,
+  toggleSidebar,
+}) => {
   const { user } = useAuth();
 
   return (
     <div className="navbar">
-      <div className="navbar-left">
+
+      {mobile && (
         <button
           className="menu-toggle"
           onClick={toggleSidebar}
         >
           <FaBars />
         </button>
+      )}
 
-        <div>
-          <h2>Library Dashboard</h2>
-          <p>Intelligent Space & Resource Booking</p>
-        </div>
+      <div>
+        <h2>Library Dashboard</h2>
+        <p>
+          Intelligent Space & Resource
+          Booking
+        </p>
       </div>
 
       <div className="profile-box">
@@ -35,6 +42,7 @@ const Navbar = ({ toggleSidebar }) => {
           </small>
         </div>
       </div>
+
     </div>
   );
 };
