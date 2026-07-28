@@ -18,6 +18,9 @@ Booking.belongsTo(Space);
 Resource.hasMany(Booking);
 Booking.belongsTo(Resource);
 
+Resource.hasMany(Booking);
+Booking.belongsTo(Resource);
+
 export {
   User,
   Space,

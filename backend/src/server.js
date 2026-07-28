@@ -1,58 +1,27 @@
-import express from "express";
+import app from "./app.js";
+import { connectDB } from "./config/database.js";
+import sequelize from "./config/database.js";
+import { env } from "./config/env.js";
 
-import { getDashboardStats } from "../controllers/adminController.js";
+import User from "./models/User.js";
+import "./models/index.js";
 
-import {
-  getUsers,
-  createUser,
-  updateUser,
-  deleteUser,
-} from "../controllers/userController.js";
+const startServer = async () => {
+  try {
+    await connectDB();
 
-import {
-  protect,
-  adminOnly,
-} from "../middleware/authMiddleware.js";
+    await sequelize.sync({
+      alter: true,
+    });
 
-const router = express.Router();
+    console.log("Database Models Synced");
 
-/* Dashboard */
+    app.listen(env.PORT, () => {
+      console.log(`Server running on port ${env.PORT}`);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-router.get(
-  "/dashboard",
-  protect,
-  adminOnly,
-  getDashboardStats
-);
-
-/* Users */
-
-router.get(
-  "/users",
-  protect,
-  adminOnly,
-  getUsers
-);
-
-router.post(
-  "/users",
-  protect,
-  adminOnly,
-  createUser
-);
-
-router.put(
-  "/users/:id",
-  protect,
-  adminOnly,
-  updateUser
-);
-
-router.delete(
-  "/users/:id",
-  protect,
-  adminOnly,
-  deleteUser
-);
-
-export default router;
+startServer();
