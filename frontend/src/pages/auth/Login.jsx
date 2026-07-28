@@ -13,17 +13,23 @@ const Login = () => {
       password: "",
     });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      await login(formData);
+  try {
+    const data = await login(formData);
 
+    if (data.user.role === "admin") {
+      navigate("/admin");
+    } else if (data.user.role === "librarian") {
+      navigate("/librarian");
+    } else {
       navigate("/dashboard");
-    } catch (error) {
-      console.log(error);
     }
-  };
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   return (
     <div className="auth-page">
