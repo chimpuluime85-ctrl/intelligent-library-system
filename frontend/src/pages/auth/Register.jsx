@@ -12,6 +12,7 @@ const Register = () => {
       name: "",
       email: "",
       password: "",
+      role: "admin",
     });
 
   const handleSubmit = async (e) => {
