@@ -53,7 +53,7 @@ const links = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ mobile, open }) => {
   return (
     <div className="sidebar">
       <div className="logo">IntelliLibrary</div>
