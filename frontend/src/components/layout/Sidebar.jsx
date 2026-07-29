@@ -37,6 +37,16 @@ const links = [
     icon: <FaBook />,
   },
   {
+  name: "Manage Resources",
+  path: "/manage-resources",
+  icon: <FaBook />,
+},
+{
+  name: "Manage Bookings",
+  path: "/manage-bookings",
+  icon: <FaCalendarCheck />,
+},
+  {
     name: "Predictions",
     path: "/predictions",
     icon: <FaChartLine />,

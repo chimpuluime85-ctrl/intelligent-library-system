@@ -39,9 +39,9 @@ import Settings from "../pages/admin/Settings";
 
 /* Librarian */
 import LibrarianDashboard from "../pages/librarian/LibrarianDashboard";
-import ManageBookings from "../pages/librarian/ManageBookings";
+import ManageBookings from "../pages/admin/ManageBookings";
 import ManageSpaces from "../pages/librarian/ManageSpaces";
-import ManageResources from "../pages/librarian/ManageResources";
+import ManageResources from "../pages/admin/ManageResources";
 
 const AppRoutes = () => {
   return (
