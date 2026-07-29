@@ -1,8 +1,7 @@
 import { Op } from "sequelize";
-
-import Space from "../models/Space.js";
-import Resource from "../models/Resource.js";
 import Booking from "../models/Booking.js";
+import Resource from "../models/Resource.js";
+import Space from "../models/Space.js";
 
 export const getDashboardStats = async (req, res) => {
   try {
@@ -10,48 +9,39 @@ export const getDashboardStats = async (req, res) => {
 
     const totalResources = await Resource.count();
 
-    const today = new Date();
+    const occupiedSpaces = await Space.count({
+      where: {
+        status: "occupied",
+      },
+    });
 
+    const today = new Date();
     today.setHours(0, 0, 0, 0);
 
     const bookingsToday = await Booking.count({
       where: {
-        createdAt: {
+        bookingDate: {
           [Op.gte]: today,
         },
       },
     });
 
-    const activeBookings = await Booking.count({
-      where: {
-        status: "approved",
-      },
-    });
-
-    const occupancyRate =
+    const occupancy =
       totalSpaces === 0
         ? 0
-        : Math.round(
-            (activeBookings / totalSpaces) * 100
-          );
+        : Math.round((occupiedSpaces / totalSpaces) * 100);
 
     res.json({
-      success: true,
-
-      data: {
-        totalSpaces,
-        totalResources,
-        bookingsToday,
-        activeBookings,
-        occupancyRate,
-      },
+      totalSpaces,
+      totalResources,
+      bookingsToday,
+      occupancy,
     });
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    console.error(err);
 
     res.status(500).json({
-      success: false,
-      message: error.message,
+      message: err.message,
     });
   }
 };
