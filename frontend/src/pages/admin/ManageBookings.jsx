@@ -34,7 +34,7 @@ const ManageBookings = () => {
   const loadBookings = async () => {
     try {
       const response = await getBookings();
-      setBookings(response.data || []);
+      setBookings(response.bookings || response.data || []);
     } catch (error) {
       console.error(error);
     }
@@ -43,7 +43,7 @@ const ManageBookings = () => {
   const loadUsers = async () => {
     try {
       const response = await getUsers();
-      setUsers(response.data || []);
+      setUsers(response.users || []);
     } catch (error) {
       console.error(error);
     }
@@ -52,7 +52,7 @@ const ManageBookings = () => {
   const loadSpaces = async () => {
     try {
       const response = await getSpaces();
-      setSpaces(response.data || []);
+      setSpaces(response.spaces || response.data || []);
     } catch (error) {
       console.error(error);
     }
@@ -61,7 +61,7 @@ const ManageBookings = () => {
   const loadResources = async () => {
     try {
       const response = await getResources();
-      setResources(response.data || []);
+      setResources(response.resources || response.data || []);
     } catch (error) {
       console.error(error);
     }
