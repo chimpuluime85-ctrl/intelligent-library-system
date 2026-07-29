@@ -10,6 +10,7 @@ import resourceRoutes from "./routes/resourceRoutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
 import analyticsRoutes from "./routes/analyticsRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use("/api/bookings", bookingRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/analytics", analyticsRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/users", userRoutes);
 
 /*
 |--------------------------------------------------------------------------
